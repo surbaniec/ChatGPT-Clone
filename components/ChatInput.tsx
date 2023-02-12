@@ -5,7 +5,7 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/solid';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { useSession } from 'next-auth/react';
 import { FormEvent, useState } from 'react';
-import toast from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 type Props = {
   chatId: string;
@@ -71,7 +71,7 @@ function ChatInput({ chatId }: Props) {
 
   return (
     <div className='bg-gray-700/50 text-gray-400 rounded-lg text-sm'>
-      <form className='p-5 space-x-5 flex' onSubmit={(e) => sendMessage}>
+      <form className='p-5 space-x-5 flex' onSubmit={(e) => sendMessage(e)}>
         <input
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}

@@ -1,7 +1,7 @@
 import query from '@/lib/queryApi';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import admin from 'firebase-admin';
-import { adminDb } from '@/firebaseAdmin';
+import { adminDb } from '../../firebaseAdmin';
 
 type Data = {
   answer: string;
@@ -9,7 +9,7 @@ type Data = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<Data>
 ) {
   const { prompt, chatId, model, session } = req.body;
 
